@@ -4,6 +4,7 @@ import css from './App.module.css';
 import Description from '../Description/Description';
 import Options from '../Options/Options';
 import Feedback from '../Feedback/Feedback';
+import Notification from '../Notification/Notification';
 
 function App() {
   // const [feedBacks, setUpdate] = useState({ good: 0, neutral: 0, bad: 0 });
@@ -70,11 +71,11 @@ function App() {
           }}
         /> */}
         {totalFeebacks > 0 && <Options title="Reset" onUpdate={setDefault} />}
-       
       </div>
 
       {totalFeebacks === 0 ? (
-        <p className={clsx(css['textFeddback'])}>No feedback yet</p>
+        // <p className={clsx(css['textFeddback'])}>No feedback yet</p>
+        <Notification text="No feedback yet." />
       ) : (
         <div>
           <div className={clsx(css['valuesFeddbackContainer'])}>
@@ -98,7 +99,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
