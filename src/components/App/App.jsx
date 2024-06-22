@@ -7,7 +7,6 @@ import Feedback from '../Feedback/Feedback';
 import Notification from '../Notification/Notification';
 
 function App() {
-  // const [feedBacks, setUpdate] = useState({ good: 0, neutral: 0, bad: 0 });
   const [feedBacks, setUpdate] = useState(() => {
     const feedBacksStorage = JSON.parse(
       window.localStorage.getItem('feedbacks')
@@ -52,29 +51,10 @@ function App() {
           );
         })}
 
-        {/* <Options
-          title="Good"
-          onUpdate={() => {
-            updateFeedback("good");
-          }}
-        />
-        <Options
-          title="Neutral"
-          onUpdate={() => {
-            updateFeedback("neutral");
-          }}
-        />
-        <Options
-          title="Bad"
-          onUpdate={() => {
-            updateFeedback("bad");
-          }}
-        /> */}
         {totalFeebacks > 0 && <Options title="Reset" onUpdate={setDefault} />}
       </div>
 
       {totalFeebacks === 0 ? (
-        // <p className={clsx(css['textFeddback'])}>No feedback yet</p>
         <Notification text="No feedback yet." />
       ) : (
         <div>
@@ -85,9 +65,7 @@ function App() {
               );
             })}
           </div>
-          {/* <Feedback title="Good" value={feedBacks.good} />
-          <Feedback title="Neutral" value={feedBacks.neutral} />
-          <Feedback title="Bad" value={feedBacks.bad} /> */}
+
           <div className={clsx(css['totalFeedbackConteiner'])}>
             <Feedback title="Total" value={totalFeebacks} />
             <Feedback title="Positive" value={positiveFeebacks} />
